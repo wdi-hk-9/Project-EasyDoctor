@@ -1,5 +1,17 @@
 <h1>Users#new</h1>
 <%= form_for @user do |f| %>
+  <!-- Error Message -->
+  <% if @user.errors.any? %>
+    <div>
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @user.errors.full_messages %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div>
     <%= f.label :name %>
     <%= f.text_field :name %>
