@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: EasyDoctorApp_production
-  username: EasyDoctorApp
-  password: <%= ENV['EASYDOCTORAPP_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
