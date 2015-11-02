@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  root 'static_pages#index'
+  get 'doctor_sessions/new'
+
+  get 'doctors/index'
+
+  get 'doctors/new'
+
+  root "users#index"
+  resources :users, only: [:new, :index, :create, :destroy]
 
   resources :users, only: [:new, :index, :create, :destroy]
 
