@@ -13,7 +13,17 @@
         <%= message %>
       </div>
     <% end %>
+    <!-- To implement session using cookies -->
+    <% if current_user %>
+      <p> hello, <%= current_user.email %> </p>
+      <%= link_to 'Logout', sessions_path, method: :delete, data: {confirm: 'Are you sure?'} %>
+    <% else %>
+      <%= link_to 'Please login', login_path %>
+    <% end %>
+  <!-- Logout button -->
+    <%= link_to 'Logout', logout_path, method: :delete, data: {confirm: 'Are you sure?'} %>
 
     <%= yield %>
+
   </body>
 </html>

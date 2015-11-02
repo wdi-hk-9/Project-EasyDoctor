@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
 
   # email_found && params[:password] == hashed_password ?
   if user && user.authenticate(params[:password])
+    session[:user_id] = user.id     #added this line to implement session using cookies
     redirect_to root_path, notice: "logged in!"
   else
    flash.now.alert = "invalid login credentials"
@@ -17,7 +18,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-  redirect_to root_url, notice: "logged out!"
+    session[:user_id] = nil     # add this line to implement session using cookie
+    redirect_to root_url, notice: "logged out!"
   end
 
 end
