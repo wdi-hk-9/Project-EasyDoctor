@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-  get 'doctor_sessions/new'
-
-  get 'doctors/index'
-
-  get 'doctors/new'
 
   root "users#index"
   resources :users, only: [:new, :index, :create, :destroy]
@@ -13,5 +8,11 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   resources :sessions, only: [:new, :create, :destroy]
 
-  delete "/logout", to: "sessions#destroy"
+  #doctors and doctor sessions below
+  resources :doctors, only: [:new, :index, :create, :destroy]
+
+  get 'doctor_login', to: 'doctor_sessions#new'
+  resources :doctor_sessions, only: [:new, :create, :destroy]
+
+  delete "/doctor_logout", to: "doctor_sessions#destroy"
 end

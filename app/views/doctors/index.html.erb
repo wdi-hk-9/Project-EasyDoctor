@@ -1,2 +1,20 @@
 <h1>Doctors#index</h1>
-<p>Find me in app/views/doctors/index.html.erb</p>
+
+<table>
+    <% @doctors.each do |doctor| %>
+      <tr>
+        <td><%=doctor.name%></td>
+        <td><%=doctor.email%></td>
+        <td><%=doctor.district%></td>
+        <td><%=doctor.address%></td>
+        <td><%=doctor.phone%></td>
+        <td><%=doctor.password_digest%></td>
+        <td>
+          <%= form_for doctor, method: "delete", url: doctor_path(doctor) do |f| %>
+            <%= f.submit "Delete" %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+
+</table>
