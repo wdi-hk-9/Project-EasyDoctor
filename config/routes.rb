@@ -15,4 +15,8 @@ Rails.application.routes.draw do
   resources :doctor_sessions, only: [:new, :create, :destroy]
 
   delete "/doctor_logout", to: "doctor_sessions#destroy"
+
+# appointments
+  resources :appointments, only: [:new, :index, :create, :edit, :update, :show, :destroy]
+
 end
