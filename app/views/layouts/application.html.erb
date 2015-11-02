@@ -16,7 +16,7 @@
     <!-- To implement session using cookies -->
     <% if current_user %>
       <p> hello, <%= current_user.email %> </p>
-      <%= link_to 'Logout', logout_path, method: :delete, data: {confirm: 'Are you sure?'} %>
+      <%= link_to 'Logout', logout_path, method: :delete%>
 
     <% end %>
   <!-- Logout button -->

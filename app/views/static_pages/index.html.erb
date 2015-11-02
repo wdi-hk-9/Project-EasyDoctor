@@ -1,14 +1,15 @@
 <div id="staticPages">
   <div class="cover-img">
-    <div class="title"><h1>Easy Doctor</h1></div>
-    <h2>Book your Medical Appointment without Pain</h2>
-    <a class="btn btn-lg" href="<%= login_path %>">Login</a>
-    <a class="btn btn-lg"href="<%= new_user_path %>">Sign Up</a>
+    <h1 class="title text-center">Easy Doctor</h1>
+    <h2 class="text-center">Book your Medical Appointment without Pain</h2>
+    <%= link_to "Login", login_path, class: "btn btn-lg" %>
+    <%= link_to "Sign Up", new_user_path, class: "btn btn-lg" %>
   </div>
   <div class="info">
-    <img src='<%= image_url("info.png") %>' alt="">
-    <h3>About</h3>
-    <p>An online application to help people to book medical appointments</p>
+    <%= image_tag("info.png") %>
+    <h3 class="text-center">About</h3>
+    <p class ="text-center">An online application to help people to book medical appointments</p>
   </div>
-  <footer>&copy 2015</footer>
+  <footer>&copy; 2015</footer>
 </div>
+
