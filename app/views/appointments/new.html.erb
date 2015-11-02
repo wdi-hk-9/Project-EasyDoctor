@@ -1,2 +1,24 @@
 <h1>Appointments#new</h1>
-<p>Find me in app/views/appointments/new.html.erb</p>
+<%= form_for @appointment do |f| %>
+  <!-- Error Message -->
+  <% if @appointment.errors.any? %>
+    <div>
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @appointment.errors.full_messages %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :datetime %>
+    <%= f.text_field :datetime %>
+  </div>
+  <div>
+    <%= f.label :status %>
+    <%= f.text_field :status %>
+  </div>
+  <%= f.submit %>
+<% end %>
