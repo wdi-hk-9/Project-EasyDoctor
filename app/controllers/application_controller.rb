@@ -8,4 +8,14 @@ class ApplicationController < ActionController::Base
   def logged_in?
     !!current_user
   end
+
+  helper_method :current_doctor
+  def current_doctor
+    @current_doctor ||= Doctor.find(session[:doctor_id]) if session[:doctor_id]
+  end
+
+  def logged_in?
+    !!current_doctor
+  end
+
 end
