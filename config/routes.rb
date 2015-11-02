@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-root "users#index"
-resources :users, only: [:new, :index, :create, :destroy]
+  root 'static_pages#index'
 
-get 'login', to: 'sessions#new'
-resources :sessions, only: [:new, :create, :destroy]
+  resources :users, only: [:new, :index, :create, :destroy]
 
-delete "/logout", to: "sessions#destroy"
+  get 'login', to: 'sessions#new'
+  resources :sessions, only: [:new, :create, :destroy]
 
+  delete "/logout", to: "sessions#destroy"
 end
