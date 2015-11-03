@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+class UserSessionsController < ApplicationController
   def new
   end
 
@@ -20,5 +20,4 @@ class SessionsController < ApplicationController
     session[:user_id] = nil     # add this line to implement session using cookie
     redirect_to root_url, notice: "logged out!"
   end
-
 end
