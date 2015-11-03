@@ -1,12 +1,14 @@
-<h1>Doctor Login</h1>
-<%= form_tag doctor_sessions_path do %>
-  <div class="field">
-    <%= label_tag :email %>
-    <%= text_field_tag :email %>
+<div id="login">
+  <div class="container">
+    <div class="row">
+      <div class ='col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 well'>
+        <h1 class="form-signin-heading">Doctor Login</h1>
+        <%= link_to "I'm Patient", new_user_session_path, class: "btn btn-lg" %>
+        <%= link_to "I'm a Doctor", new_doctor_session_path, class: "btn btn-lg disabled" %>
+
+        <%= render "login_form" %>
+
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-  </div>
-  <div class="actions"><%= submit_tag "Log in" %></div>
-<% end %>
+</div>
