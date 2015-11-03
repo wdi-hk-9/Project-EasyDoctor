@@ -1,0 +1,32 @@
+<h1>Doctors#index</h1>
+
+<table>
+  <thead>
+    <tr>
+      <td>name</td>
+      <td>email</td>
+      <td>district</td>
+      <td>address</td>
+      <td>phone</td>
+      <td>password_digest</td>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @doctors.each do |doctor| %>
+      <tr>
+        <td><%=doctor.name%></td>
+        <td><%=doctor.email%></td>
+        <td><%=doctor.district%></td>
+        <td><%=doctor.address%></td>
+        <td><%=doctor.phone%></td>
+        <td><%=doctor.password_digest%></td>
+        <td>
+          <%= form_for doctor, method: "delete", url: doctor_path(doctor) do |f| %>
+            <%= f.submit "Delete" %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
