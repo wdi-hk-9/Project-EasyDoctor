@@ -10,7 +10,7 @@ class AppointmentsController < ApplicationController
   def edit
   end
 
-  def show
+  def update
   end
 
   def create
