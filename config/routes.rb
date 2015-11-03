@@ -2,9 +2,13 @@ Rails.application.routes.draw do
 
   root "static_pages#index"
 
-  get    'login',  to: 'sessions#new'
-  get    'signup', to: 'users#new'
+  get 'user/dashboard', to: 'users#dashboard'
+
+  get 'signup', to: 'users#new'
+  resources :users, only: [:create]
+
+
+  get 'login', to: 'sessions#new'
   delete 'logout', to: 'sessions#destroy'
-  resources :users,    only: [:new, :create]
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :sessions, only: [:create]
 end

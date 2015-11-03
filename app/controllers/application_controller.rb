@@ -13,4 +13,12 @@ class ApplicationController < ActionController::Base
   def is_doctor?
     current_user && current_user.is_doctor
   end
+
+  def authenticate_user
+    unless logged_in?
+      flash[:error] = "You must be logged in to access this section of the site"
+      redirect_to login_url
+    end
+  end
+
 end

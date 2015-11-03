@@ -1,8 +1,5 @@
 class UsersController < ApplicationController
-  def index
-    @users = User.all
-  end
-
+  before_action :authenticate_user, only: [:dashboard]
   def new
     @user = User.new
   end
@@ -16,12 +13,8 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy
-    @user = User.find(params[:id])
-    # destroy
-    @user.destroy
-    # redirect_to
-    redirect_to users_path
+  def dashboard
+    @appointments = Appointment.all
   end
 
   private
