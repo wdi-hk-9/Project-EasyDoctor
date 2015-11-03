@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :index, :create, :destroy]
 
-  get 'user/login', to: 'sessions#new'
-  resources :sessions, only: [:new, :create, :destroy]
+  get 'user/login', to: 'user_sessions#new'
+  resources :user_sessions, only: [:new, :create, :destroy]
 
   #doctors and doctor sessions below
   resources :doctors, only: [:new, :index, :create, :destroy]

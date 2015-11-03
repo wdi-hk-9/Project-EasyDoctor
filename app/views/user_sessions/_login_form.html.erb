@@ -1,0 +1,9 @@
+<%= form_tag user_sessions_path do %>
+  <div class="field">
+  <%= text_field_tag :email, params[:email], {class: "form-control input-lg", placeholder: "Email"} %>
+  </div>
+  <div class="field">
+  <%= password_field_tag :password,"", {class: "form-control input-lg", placeholder: "Password"} %>
+  </div>
+  <div class="actions"><%= submit_tag "Log in", {class: "btn btn-primary btn-lg"} %></div>
+<% end %>
