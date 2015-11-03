@@ -4,6 +4,10 @@ class CreateUsers < ActiveRecord::Migration
       t.string  :name
       t.string  :mobile
       t.string  :email
+      t.string  :district
+      t.string  :address
+      t.boolean :is_doctor
+
       t.string  :password_digest
 
       t.timestamps null: false
