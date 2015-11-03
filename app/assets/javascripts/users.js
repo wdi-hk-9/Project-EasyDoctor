@@ -43,14 +43,14 @@ $(document).ready(function () {
     var year = date.getFullYear();
     var month = date.getMonth();
     var day = date.getDate();
-    var hour;
-    var min;
+    var hour = Math.floor((parseInt($("#timeslot").val()))*0.5) + 10
+    var min = parseInt($("#timeslot").val()) % 2 == 0 ? 0 : 30;;
     var datetime = new Date(year, month, day, hour, min)
 
     console.log(datetime)
     $.ajax({
       method: "POST",
-      url: "/appointment",
+      url: "/appointments",
       data: {
         appointment: {
           datetime: datetime
