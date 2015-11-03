@@ -5,8 +5,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    puts DateTime.parse(params[:appointment][:datetime])
-
+    # puts DateTime.parse(params[:appointment][:datetime])
     @user = User.new(user_params)
     if @user.save
       redirect_to users_path

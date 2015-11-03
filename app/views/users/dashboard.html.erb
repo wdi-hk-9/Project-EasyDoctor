@@ -7,14 +7,30 @@
 
 
   <div id="make-appointment">
-    <h1>User Index</h1>
-    <h2><%= current_user.name %></h2>
+    <h1>Welcome, <%= current_user.name %></h1>
     <p>Make an appointment</p>
+
     <%= form_for :appointment, html: {id: "send-request-form"} do |f| %>
+
       <div id="datepicker"></div>
+
+      <select name="timeslot" id="timeslot">
+        <option value="0">10:00-10:30</option>
+        <option value="1">10:31-11:00</option>
+        <option value="2">11:00-11:30</option>
+        <option value="3">11:30-12:00</option>
+
+        <option value="8">14:00-14:30</option>
+        <option value="9">14:30-15:00</option>
+        <option value="10">15:00-15:30</option>
+        <option value="11">15:30-16:00</option>
+        <option value="12">16:00-16:30</option>
+        <option value="13">16:30-17:00</option>
+      </select>
 
       <%= f.submit "Send Request" %>
     <% end %>
+
   </div>
 
   <div id="confirmed-appointments">
