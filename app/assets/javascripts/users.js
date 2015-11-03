@@ -26,10 +26,36 @@ $(document).ready(function () {
   $('#show-appt').on('click', function(){
     $('#make-appointment').hide('slow');
     $('#confirmed-appointments').show('slow');
- });
+  });
 
   $('#add-appt').on('click', function(){
     $('#confirmed-appointments').hide('slow');
     $('#make-appointment').show('slow');
- });
+  });
+
+  $('#datepicker').datepicker();
+
+  $('#send-request-form').on("submit", function(e){
+    e.preventDefault();
+    // ajax method
+
+    var date = $('#datepicker').datepicker("getDate")
+    var year = date.getFullYear();
+    var month = date.getMonth();
+    var day = date.getDate();
+    var hour;
+    var min;
+    var datetime = new Date(year, month, day, hour, min)
+
+    console.log(datetime)
+    $.ajax({
+      method: "POST",
+      url: "/appointment",
+      data: {
+        appointment: {
+          datetime: datetime
+        }
+      }
+    })
+  });
 })
