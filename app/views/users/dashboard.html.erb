@@ -11,11 +11,17 @@
 
     <%= form_for :appointment, html: {id: "send-request-form"} do |f| %>
 
+      <select name="doctors" id="doctor-selection">
+        <% @doctors.each do |doctor| %>
+          <option value="<%= doctor.id %>"><%= doctor.name %></option>
+        <% end %>
+      </select>
+
       <div id="datepicker"></div>
 
       <select name="timeslot" id="timeslot">
         <option value="0">10:00-10:30</option>
-        <option value="1">10:31-11:00</option>
+        <option value="1">10:30-11:00</option>
         <option value="2">11:00-11:30</option>
         <option value="3">11:30-12:00</option>
 

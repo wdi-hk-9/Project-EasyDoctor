@@ -5,10 +5,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    # puts DateTime.parse(params[:appointment][:datetime])
     @user = User.new(user_params)
     if @user.save
-      redirect_to users_path
+      redirect_to user_dashboard_path
     else
       render 'new'
     end
@@ -16,6 +15,7 @@ class UsersController < ApplicationController
 
   def dashboard
     @appointments = Appointment.all
+    @doctors = User.where(is_doctor: true)
   end
 
   private
