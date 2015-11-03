@@ -1,0 +1,31 @@
+
+<div id="user-dashboard">
+  <div class="row">
+    <button id="add-appt"class="btn btn-primary col-xs-6">Make Appointment</button>
+    <button id="show-appt"class="btn btn-primary col-xs-6">Confirmed Appointments</button>
+  </div>
+
+  <div id="make-appointment">
+    <h1>User Index</h1>
+    <h2><%= current_user.name %></h2>
+    <p>Make an appointment</p>
+  </div>
+
+  <div id="confirmed-appointments">
+    <h1>My Appointments</h1>
+    <table>My Appointments</table>
+      <thead>
+        <tr>Date</tr>
+        <tr>Time</tr>
+        <tr>Doctor</tr>
+        <tr>Status</tr>
+      </thead>
+      <tbody>
+<!--         <!%= @appointment.each do |f| %>
+          <tr><!%=f.date%></tr>
+          <tr><!%=f.time%></tr> -->
+        <%end%>
+      </tbody>
+  </div>
+</div>
+
