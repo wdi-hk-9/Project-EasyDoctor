@@ -1,20 +1,18 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
+
     <ul class="nav navbar-nav navbar-left">
       <li>
         <a class="nav navbar" href="/">EasyDoctor</a>
       </li>
     </ul>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
     <% if logged_in? %>
       <ul class="nav navbar-nav navbar-right">
         <li>
           <%= link_to 'Logout', logout_path, method: :delete, class: "nav navbar", id: "logout_btn" %>
         </li>
       </ul>
-
     <% end %>
-  </div><!-- /.container-fluid -->
+  </div>
 </nav>
