@@ -49,10 +49,10 @@
         <tr>Status</tr>
       </thead>
       <tbody>
-<!--         <!%= @appointment.each do |f| %>
-          <tr><!%=f.date%></tr>
-          <tr><!%=f.time%></tr>
-        <!%end%> -->
+        <%= @appointments.each do |f| %>
+          <tr><%=f.datetime%></tr>
+          <tr><%=f.doctor_id%></tr>
+        <%end%>
       </tbody>
   </div>
 </div>
