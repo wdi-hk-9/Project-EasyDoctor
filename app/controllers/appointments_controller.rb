@@ -1,5 +1,9 @@
 class AppointmentsController < ApplicationController
 
+  def index
+    @appointment = current_user.doctor_appointments
+  end
+
   def create
     datetime = DateTime.parse(params[:appointment][:datetime])
     @appointment = Appointment.new
