@@ -1,0 +1,38 @@
+<div id="find-doctors-page">
+  <h1>Find Doctors</h1>
+  <p>Select District</p>
+
+  <%= form_for :user, method: "get" do |f| %>
+    <%= f.select :district, @districts, {}, class: "form-control" do %>
+      <option value>Select District: </option>
+      <% @districts.each do |district| %>
+        <option value="<%= district %>"><%= district %></option>
+      <% end %>
+    <% end %>
+    <%= f.submit "Find By District", class: "btn btn-primary btn-lg" %>
+  <% end %>
+
+  <table id="find-doctors" class="table">
+    <thead>
+      <tr>
+        <th>NAME</th>
+        <th>MOBILE</th>
+        <th>EMAIL</th>
+        <th>DISTRICT</th>
+        <th>ADDRESS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @doctors.each do |doctor| %>
+        <tr>
+          <td><%= doctor.name %></td>
+          <td><%= doctor.mobile %></td>
+          <td><%= doctor.email %></td>
+          <td><%= doctor.district %></td>
+          <td><%= doctor.address %></td>
+          <td><%= link_to "Book", new_user_appointment_path(doctor.id), class: "btn btn-primary"%></td>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
+</div>
