@@ -1,0 +1,72 @@
+
+<div id="user-dashboard">
+  <h1>Welcome, <%= current_user.name %></h1>
+  <div class="row">
+    <button id="find-doc"class="btn btn-primary col-xs-4">Find Doctors</button>
+    <button id="add-appt"class="btn btn-primary col-xs-4">Book Appointment</button>
+    <button id="show-appt"class="btn btn-primary col-xs-4">My Appointments</button>
+  </div>
+
+  <div id="search-doc" class="form-group">
+    <h1>Find Doctors</h1>
+    <p>Select District</p>
+    <select name="district" id="district-selection" class="form-control">
+      <option value="">Select a District: </option>}
+      <% @doctors.pluck(:district).uniq.each do |district| %>
+      <option value="district"><%= district %></option>
+      <% end %>
+    </select>
+
+    <select name="doctors" id="doctor-selection" class="form-control">
+      <option value="">Select a Doctor: </option>}
+      <% @doctors.each do |doctor| %>
+        <option value="<%= doctor.id %>" district="<%= doctor.district %>" class="hide"><%= doctor.name %></option>
+      <% end %>
+    </select>
+  </div>
+
+  <div id="make-appointment" class="form-group">
+    <p>Make an appointment</p>
+    <form id="send-request-form" action="dashboard_submit" method="post">
+
+      <div id="datepicker"></div>
+      <select name="timeslot" id="timeslot" class="form-control">
+        <option value="0">10:00-10:30</option>
+        <option value="1">10:30-11:00</option>
+        <option value="2">11:00-11:30</option>
+        <option value="3">11:30-12:00</option>
+        <option value="8">14:00-14:30</option>
+        <option value="9">14:30-15:00</option>
+        <option value="10">15:00-15:30</option>
+        <option value="11">15:30-16:00</option>
+        <option value="12">16:00-16:30</option>
+        <option value="13">16:30-17:00</option>
+      </select>
+      <input class="btn btn-default" type="submit" name="submit" value="Send Request">
+    </form>
+  </div>
+
+  <div id="confirmed-appointments" class="container table-responsive">
+    <h1>My Appointments</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Date (YYYY/MM/DD)</th>
+          <th>Appointment Begin Time</th>
+          <th>Doctor</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <%= @appointments.each do |appointment| %>
+            <% datetime = appointment.datetime.in_time_zone("Hong Kong") %>
+            <td><%= "#{datetime.year} #{"."} #{datetime.month} #{"."} #{datetime.day}" %></td>
+            <td><%= "#{datetime.hour} #{":"} #{datetime.min}" %></td>
+            <!-- <td><!%=appointment.doctor.name%></td> -->
+            <td>Pending</td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>

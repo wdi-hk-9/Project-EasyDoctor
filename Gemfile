@@ -13,8 +13,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+# User jquery ui
+gem 'jquery-ui-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -26,6 +26,8 @@ gem 'bootstrap-sass'
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
 
+gem 'wannabe_bool'
+
 group :development, :test do
   # Better Errors replaces the standard Rails error page with a much better and more useful error page.
   #> https://github.com/charliesome/better_errors
@@ -34,6 +36,7 @@ group :development, :test do
   # Rails console opens pry
   #> https://github.com/rweng/pry-rails
   gem 'pry-rails'
+  gem "faker"
 
 end
 

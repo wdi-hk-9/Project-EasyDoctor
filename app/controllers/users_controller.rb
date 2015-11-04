@@ -1,27 +1,22 @@
 class UsersController < ApplicationController
-  def index
-    @users = User.all
-  end
-
+  before_action :authenticate_user, only: [:dashboard]
   def new
     @user = User.new
   end
 
   def create
     @user = User.new(user_params)
+    @user.is_doctor = @user.is_doctor.to_b
     if @user.save
-      redirect_to users_path
+      redirect_to user_dashboard_path
     else
       render 'new'
     end
   end
 
-  def destroy
-    @user = User.find(params[:id])
-    # destroy
-    @user.destroy
-    # redirect_to
-    redirect_to users_path
+  def dashboard
+    @appointments = Appointment.all
+    @doctors = User.where(is_doctor: true)
   end
 
   private
