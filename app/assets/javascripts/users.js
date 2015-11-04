@@ -13,8 +13,6 @@ $(document).ready(function(){
   updateViews();
 
   $('.doctors').hide();
-
-  // $('#user_select').on('change', updateViews);
   $('#user_select').on('change', updateViews);
 })
 
@@ -38,7 +36,6 @@ $(document).ready(function () {
   $('#send-request-form').on("submit", function(e){
     e.preventDefault();
     // ajax method
-
     var date = $('#datepicker').datepicker("getDate")
     var year = date.getFullYear();
     var month = date.getMonth();
@@ -48,7 +45,6 @@ $(document).ready(function () {
     var datetime = new Date(year, month, day, hour, min);
     var doctor_id = $("#doctor-selection").val();
 
-    console.log(datetime)
     $.ajax({
       method: "POST",
       url: "/appointments",
