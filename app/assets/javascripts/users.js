@@ -51,15 +51,13 @@ $(document).ready(function () {
     var hour = Math.floor((parseInt($("#timeslot").val()))*0.5) + 10;
     var min = parseInt($("#timeslot").val()) % 2 == 0 ? 0 : 30;
     var datetime = new Date(year, month, day, hour, min);
-    var doctor_id = $("#doctor-selection").val();
 
     $.ajax({
       method: "POST",
-      url: "/appointments",
+      url: "/users/"+ window.location.pathname.split('/')[2] +"/appointments",
       data: {
         appointment: {
-          datetime: datetime,
-          doctor_id: doctor_id
+          datetime: datetime
         }
       }
     })

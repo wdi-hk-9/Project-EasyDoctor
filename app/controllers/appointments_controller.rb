@@ -6,6 +6,7 @@ class AppointmentsController < ApplicationController
 
   def new
     @appointment = Appointment.new
+    @appointment.doctor_id = params[:user_id].to_i
   end
 
   def create
@@ -13,7 +14,7 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new
     @appointment.datetime = datetime
     @appointment.user_id = current_user.id
-    @appointment.doctor_id = params[:appointment][:doctor_id].to_i
+    @appointment.doctor_id = params[:user_id].to_i
     if @appointment.save
       redirect_to root_path
     else
@@ -23,6 +24,6 @@ class AppointmentsController < ApplicationController
 
   private
   def appointment_params
-    params.require(:appointment).permit(:datetime, :doctor_id)
+    params.require(:appointment).permit(:datetime)
   end
 end
