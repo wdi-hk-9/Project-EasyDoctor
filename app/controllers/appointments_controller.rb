@@ -18,4 +18,4 @@ class AppointmentsController < ApplicationController
     params.require(:appointment).permit(:datetime, :doctor_id)
   end
 
-end
+send
