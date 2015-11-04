@@ -1,4 +1,5 @@
 #staticPages{
+
   .cover-img{
     width: 100%;
     height: 450px;
@@ -9,25 +10,40 @@
     overflow: auto;
     color: white;
     margin-bottom: 30px;
+    margin-top: 0px;
   }
-  .title{
-    width: 100%;
-    height: 80px;
-    background-color: #41B6A6;
-    margin-top:80px;
+
+  .title-box{
+    margin: auto;
+    width: 80%;
+    height: 90px;
+    margin-top: 50px;
+
+    a{
+      margin: 20px 20px;
+      width: 150px
+    }
   }
 
   h1,h3{
-    font-weight: 400;
-    font-size: 38px;
+    font-weight: 500;
+    font-size: 40px;
     padding-top: 20px;
   }
 
   h2,p{
-    width: 100%;
+    width: 60%;
+    margin: auto;
+    min-width: 300px;
+    line-height: 200%;
     font-size: 24px;
     font-style: italic;
     margin-top: 30px;
+    margin-bottom: 30px;
   }
-}
 
+  .info img{
+    height:80px;
+  }
+
+}

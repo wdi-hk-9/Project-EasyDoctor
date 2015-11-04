@@ -9,6 +9,7 @@
 body {
   font-family: 'Lato', sans-serif;
   text-align: center;
+  min-width: 300px;
 }
 
 .container, .field, .actions {
@@ -18,7 +19,6 @@ body {
 .btn {
  background-color: #41B6A6;
  color: white;
- border-color: white;
 }
 
 footer {
