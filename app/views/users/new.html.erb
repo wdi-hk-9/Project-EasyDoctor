@@ -5,7 +5,7 @@
         <h1 class="form-signin-heading">Sign Up</h1>
 
         <%= form_for @user do |f| %>
-          <select name="user[is_doctor]" id="user_select">
+          <select name="user[is_doctor]" id="user_select" class="form-control">
             <option value="false">Patient</option>
             <option value="true"> Doctor </option>
           </select>
@@ -31,7 +31,12 @@
           </div>
 
           <div class="field doctors">
-            <%= f.text_field :district, {class: "form-control input-lg", placeholder: "District"} %>
+            <select name="user[district]" id="user_select" class="form-control">
+              <option value="">Select a district: </option>
+              <option value="Hong Kong">Hong Kong</option>
+              <option value="Kowloon">Kowloon</option>
+              <option value="New Territories">New Territories</option>
+            </select>
           </div>
 
           <div class="field doctors">

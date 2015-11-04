@@ -2,7 +2,6 @@
 $(document).ready(function(){
   var updateViews = function(e) {
     var is_doctor = $('#user_select').val() == "true";
-
     if (is_doctor) {
       $('.doctors').show('slow');
     } else {
@@ -18,18 +17,35 @@ $(document).ready(function(){
 
 // User Dashboard
 $(document).ready(function () {
-  $('#make-appointment').show();
+  $('#find-doc').show();
+  $('#make-appointment').hide();
   $('#confirmed-appointments').hide();
+
+  $('#find-doc').on('click', function(){
+    $('#search-doc').show('slow');
+    $('#make-appointment').hide('slow');
+    $('#confirmed-appointments').hide('slow');
+  });
 
   $('#show-appt').on('click', function(){
     $('#make-appointment').hide('slow');
+    $('#search-doc').hide('slow');
     $('#confirmed-appointments').show('slow');
   });
 
   $('#add-appt').on('click', function(){
     $('#confirmed-appointments').hide('slow');
+    $('#search-doc').hide('slow');
     $('#make-appointment').show('slow');
   });
+
+  //Filter Doctors
+  var findDoctors = function(e) {
+    $('#doctor-selection').find('[district]').addClass("hide");
+    $('#doctor-selection').find('[district="'+'Wan Chai'+'"]').removeClass("hide");
+  }
+
+  $('#district-selection').on('change', findDoctors);
 
   $('#datepicker').datepicker();
 

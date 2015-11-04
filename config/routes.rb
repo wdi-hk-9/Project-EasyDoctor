@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'user/dashboard', to: 'users#dashboard'
 
   get 'signup', to: 'users#new'
-  resources :users, only: [:create]
+  resources :users, only: [:create, :show]
 
 
   get 'login', to: 'sessions#new'

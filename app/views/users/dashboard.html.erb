@@ -1,19 +1,34 @@
 
 <div id="user-dashboard">
+  <h1>Welcome, <%= current_user.name %></h1>
   <div class="row">
-    <button id="add-appt"class="btn btn-primary col-xs-6">Make Appointment</button>
-    <button id="show-appt"class="btn btn-primary col-xs-6">Confirmed Appointments</button>
+    <button id="find-doc"class="btn btn-primary col-xs-4">Find Doctors</button>
+    <button id="add-appt"class="btn btn-primary col-xs-4">Book Appointment</button>
+    <button id="show-appt"class="btn btn-primary col-xs-4">My Appointments</button>
+  </div>
+
+  <div id="search-doc" class="form-group">
+    <h1>Find Doctors</h1>
+    <p>Select District</p>
+    <select name="district" id="district-selection" class="form-control">
+      <option value="">Select a District: </option>}
+      <% @doctors.pluck(:district).uniq.each do |district| %>
+      <option value="district"><%= district %></option>
+      <% end %>
+    </select>
+
+    <select name="doctors" id="doctor-selection" class="form-control">
+      <option value="">Select a Doctor: </option>}
+      <% @doctors.each do |doctor| %>
+        <option value="<%= doctor.id %>" district="<%= doctor.district %>" class="hide"><%= doctor.name %></option>
+      <% end %>
+    </select>
   </div>
 
   <div id="make-appointment" class="form-group">
-    <h1>Welcome, <%= current_user.name %></h1>
     <p>Make an appointment</p>
     <form id="send-request-form" action="dashboard_submit" method="post">
-      <select name="doctors" id="doctor-selection" class="form-control">
-        <% @doctors.each do |doctor| %>
-          <option value="<%= doctor.id %>"><%= doctor.name %></option>
-        <% end %>
-      </select>
+
       <div id="datepicker"></div>
       <select name="timeslot" id="timeslot" class="form-control">
         <option value="0">10:00-10:30</option>
@@ -48,7 +63,7 @@
             <% datetime = appointment.datetime.in_time_zone("Hong Kong") %>
             <td><%= "#{datetime.year} #{"."} #{datetime.month} #{"."} #{datetime.day}" %></td>
             <td><%= "#{datetime.hour} #{":"} #{datetime.min}" %></td>
-            <td><%=appointment.doctor.name%></td>
+            <!-- <td><!%=appointment.doctor.name%></td> -->
             <td>Pending</td>
         </tr>
         <% end %>

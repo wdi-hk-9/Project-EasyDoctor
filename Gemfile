@@ -26,6 +26,8 @@ gem 'bootstrap-sass'
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
 
+gem 'wannabe_bool'
+
 group :development, :test do
   # Better Errors replaces the standard Rails error page with a much better and more useful error page.
   #> https://github.com/charliesome/better_errors
@@ -34,6 +36,7 @@ group :development, :test do
   # Rails console opens pry
   #> https://github.com/rweng/pry-rails
   gem 'pry-rails'
+  gem "faker"
 
 end
 

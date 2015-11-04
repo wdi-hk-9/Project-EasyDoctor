@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.is_doctor = @user.is_doctor.to_b
     if @user.save
       redirect_to user_dashboard_path
     else
