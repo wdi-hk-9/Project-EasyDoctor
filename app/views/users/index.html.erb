@@ -1,8 +1,6 @@
 <div id="find-doctors-page">
   <h1>Find Doctors</h1>
   <p>Select District</p>
-  <!-- /users -->
-  <!-- /users?district=Wan Chai -->
 
   <%= form_for :user, method: "get" do |f| %>
     <%= f.select :district, @districts, {}, class: "form-control" do %>
