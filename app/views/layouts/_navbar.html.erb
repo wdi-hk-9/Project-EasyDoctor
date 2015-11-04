@@ -14,7 +14,7 @@
      <ul class="nav navbar-nav navbar-right">
        <% if logged_in? %>
          <li><a href="<%= users_path %>">Find Doctors</a></li>
-         <li><a href="#">My Appointments</a></li>
+         <li><a href="<%= users_appointments_path %>">My Appointments</a></li>
          <li><%= link_to 'Logout', logout_path, method: :delete %></li>
        <% end %>
      </ul>

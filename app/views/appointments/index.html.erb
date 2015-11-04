@@ -1,0 +1,24 @@
+<h1>My Appointments</h1>
+  <div id="confirmed-appointments" class="container table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Date (YYYY/MM/DD)</th>
+          <th>Appointment Begin Time</th>
+          <th>Doctor</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @appointments.each do |appointment| %>
+        <% datetime = appointment.datetime.in_time_zone("Hong Kong") %>
+        <tr>
+          <td><%= "#{datetime.year} #{"."} #{datetime.month} #{"."} #{datetime.day}" %></td>
+          <td><%= "#{datetime.hour} #{":"} #{datetime.min == 0 ? "00" : "30"}" %></td>
+          <td><%= appointment.doctor.name%></td>
+          <td>Pending</td>
+        <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
