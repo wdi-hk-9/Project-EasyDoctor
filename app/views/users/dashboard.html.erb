@@ -1,4 +1,3 @@
-
 <div id="user-dashboard">
   <h1>Welcome, <%= current_user.name %></h1>
   <div class="row">
@@ -7,15 +6,6 @@
     <button id="show-appt"class="btn btn-primary col-xs-4">My Appointments</button>
   </div>
 
-  <div id="search-doc" class="form-group">
-    <h1>Find Doctors</h1>
-    <p>Select District</p>
-    <select name="district" id="district-selection" class="form-control">
-      <option value="">Select a District: </option>}
-      <% @doctors.pluck(:district).uniq.each do |district| %>
-      <option value="district"><%= district %></option>
-      <% end %>
-    </select>
 
     <select name="doctors" id="doctor-selection" class="form-control">
       <option value="">Select a Doctor: </option>}

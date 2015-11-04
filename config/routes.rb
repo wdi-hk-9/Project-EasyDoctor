@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'user/dashboard', to: 'users#dashboard'
 
   get 'signup', to: 'users#new'
-  resources :users, only: [:create, :show]
+  resources :users, only: [:create, :show, :index]
 
   get 'login', to: 'sessions#new'
   delete 'logout', to: 'sessions#destroy'

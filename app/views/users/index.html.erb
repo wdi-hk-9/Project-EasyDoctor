@@ -1,0 +1,33 @@
+<div id="find-doctors">
+  <h1>Find Doctors</h1>
+  <p>Select District</p>
+  <select name="district" id="district-selection" class="form-control">
+    <option value="">Select a District: </option>
+    <% @doctors.pluck(:district).uniq.each do |district| %>
+    <option value="district"><%= district %></option>
+    <% end %>
+  </select>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>NAME</th>
+        <th>MOBILE</th>
+        <th>EMAIL</th>
+        <th>DISTRICT</th>
+        <th>ADDRESS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= @doctors.each do |doctor| %>
+        <tr>
+          <td><%= doctor.name %></td>
+          <td><%= doctor.mobile %></td>
+          <td><%= doctor.email %></td>
+          <td><%= doctor.district %></td>
+          <td><%= doctor.address %></td>
+          <td><button>Book</button></td>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
+</div>
