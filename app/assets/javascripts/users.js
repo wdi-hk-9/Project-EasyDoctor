@@ -8,9 +8,7 @@ $(document).ready(function(){
       $('.doctors').hide('slow');
     }
   }
-
   updateViews();
-
   $('.doctors').hide();
   $('#user_select').on('change', updateViews);
 })
@@ -39,13 +37,7 @@ $(document).ready(function () {
     $('#make-appointment').show('slow');
   });
 
-  //Filter Doctors
-  var findDoctors = function(e) {
-    $('#doctor-selection').find('[district]').addClass("hide");
-    $('#doctor-selection').find('[district="'+'Wan Chai'+'"]').removeClass("hide");
-  }
-
-  $('#district-selection').on('change', findDoctors);
+  //Make Appointment
 
   $('#datepicker').datepicker();
 

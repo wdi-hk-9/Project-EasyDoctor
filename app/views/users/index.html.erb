@@ -1,13 +1,20 @@
-<div id="find-doctors">
+<div id="find-doctors-page">
   <h1>Find Doctors</h1>
   <p>Select District</p>
-  <select name="district" id="district-selection" class="form-control">
-    <option value="">Select a District: </option>
-    <% @doctors.pluck(:district).uniq.each do |district| %>
-    <option value="district"><%= district %></option>
+  <!-- /users -->
+  <!-- /users?district=Wan Chai -->
+
+  <%= form_for :user, method: "get" do |f| %>
+    <%= f.select :district, @districts, {}, class: "form-control" do %>
+      <option value>Select District: </option>
+      <% @districts.each do |district| %>
+        <option value="<%= district %>"><%= district %></option>
+      <% end %>
     <% end %>
-  </select>
-  <table class="table">
+    <%= f.submit "Find By District", class: "btn btn-primary btn-lg" %>
+  <% end %>
+
+  <table id="find-doctors" class="table">
     <thead>
       <tr>
         <th>NAME</th>
@@ -18,14 +25,14 @@
       </tr>
     </thead>
     <tbody>
-      <%= @doctors.each do |doctor| %>
+      <% @doctors.each do |doctor| %>
         <tr>
           <td><%= doctor.name %></td>
           <td><%= doctor.mobile %></td>
           <td><%= doctor.email %></td>
           <td><%= doctor.district %></td>
           <td><%= doctor.address %></td>
-          <td><button>Book</button></td>
+          <td><%= link_to "Book", new_user_appointment_path(doctor.id), class: "btn btn-primary"%></td>
         </tr>
       <%end%>
     </tbody>

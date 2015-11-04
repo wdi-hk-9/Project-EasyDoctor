@@ -5,7 +5,14 @@ class UsersController < ApplicationController
   end
 
   def index
-    @doctors = User.where(is_doctor: true)
+    @districts = User.where(is_doctor: true).pluck(:district).uniq
+    if params[:user]
+      if params[:user][:district] #/users?district=Wan Chai
+        @doctors = User.where(is_doctor: true).where(filter_params)
+      end
+    else #/users
+      @doctors = User.where(is_doctor: true)
+    end
   end
 
   def create
@@ -26,5 +33,9 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:is_doctor, :name, :mobile, :email, :password, :password_confirmation, :district, :address)
+  end
+
+  def filter_params
+    params.require(:user).permit(:district)
   end
 end
