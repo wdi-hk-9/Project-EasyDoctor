@@ -5,26 +5,21 @@
     <button id="show-appt"class="btn btn-primary col-xs-6">Confirmed Appointments</button>
   </div>
 
-  <div id="make-appointment">
+  <div id="make-appointment" class="form-group">
     <h1>Welcome, <%= current_user.name %></h1>
     <p>Make an appointment</p>
-
-    <%= form_for :appointment, html: {id: "send-request-form"} do |f| %>
-
-      <select name="doctors" id="doctor-selection">
+    <form id="send-request-form" action="dashboard_submit" method="post">
+      <select name="doctors" id="doctor-selection" class="form-control">
         <% @doctors.each do |doctor| %>
           <option value="<%= doctor.id %>"><%= doctor.name %></option>
         <% end %>
       </select>
-
       <div id="datepicker"></div>
-
-      <select name="timeslot" id="timeslot">
+      <select name="timeslot" id="timeslot" class="form-control">
         <option value="0">10:00-10:30</option>
         <option value="1">10:30-11:00</option>
         <option value="2">11:00-11:30</option>
         <option value="3">11:30-12:00</option>
-
         <option value="8">14:00-14:30</option>
         <option value="9">14:30-15:00</option>
         <option value="10">15:00-15:30</option>
@@ -32,27 +27,34 @@
         <option value="12">16:00-16:30</option>
         <option value="13">16:30-17:00</option>
       </select>
-
-      <%= f.submit "Send Request" %>
-    <% end %>
-
+      <input class="btn btn-default" type="submit" name="submit" value="Send Request">
+    </form>
   </div>
 
-  <div id="confirmed-appointments">
+  <div id="confirmed-appointments" class="container table-responsive">
     <h1>My Appointments</h1>
-    <table>My Appointments</table>
+    <table class="table">
       <thead>
-        <tr>Date</tr>
-        <tr>Time</tr>
-        <tr>Doctor</tr>
-        <tr>Status</tr>
+        <tr>
+          <th>Date (YYYY/MM/DD)</th>
+          <th>Appointment Begin Time</th>
+          <th>Doctor</th>
+          <th>Status</th>
+        </tr>
       </thead>
       <tbody>
-        <%= @appointments.each do |f| %>
-          <tr><%=f.datetime%></tr>
-          <tr><%=f.doctor_id%></tr>
-        <%end%>
+        <tr>
+          <%= @appointments.each do |appointment| %>
+            <% datetime = appointment.datetime.in_time_zone("Hong Kong") %>
+            <td><%= "#{datetime.year} #{"."} #{datetime.month} #{"."} #{datetime.day}" %></td>
+            <td><%= "#{datetime.hour} #{":"} #{datetime.min}" %></td>
+            <td><%=appointment.doctor.name%></td>
+            <td>Pending</td>
+        </tr>
+        <% end %>
       </tbody>
+    </table>
   </div>
-</div>
+
+
 
