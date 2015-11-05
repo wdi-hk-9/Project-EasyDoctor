@@ -19,8 +19,8 @@
             <td><%= appointment.status %></td>
             <% if appointment.status == "Pending" %>
               <td>
-                <%= button_to "Confirm", doctors_appointment_path(appointment.id) + "?appointment[status]=Confirmed", class: "btn btn-primary", method: "put" %>
-                <%= button_to "Reject", doctors_appointment_path(appointment.id) + "?appointment[status]=Rejected", class: "btn btn-danger", method: "put" %>
+                <%= button_to "Confirm", doctors_appointment_confirm_path(appointment.id) + "?appointment[status]=Confirmed", class: "btn btn-primary", method: "put" %>
+                <%= button_to "Reject", doctors_appointment_reject_path(appointment.id) + "?appointment[status]=Rejected", class: "btn btn-danger", method: "put" %>
               </td>
             <% end %>
           </tr>
