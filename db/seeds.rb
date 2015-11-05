@@ -4,7 +4,7 @@
 # Examples:
 #
 
-districts = ["Central", "Wan Chai", "Kowloon"]
+districts = ["Central", "Wan Chai", "Admiralty"]
 
 User.delete_all
 

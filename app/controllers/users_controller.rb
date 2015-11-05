@@ -1,8 +1,5 @@
 class UsersController < ApplicationController
   before_action :authenticate_user, only: [:dashboard]
-  def new
-    @user = User.new
-  end
 
   def index
     @districts = User.where(is_doctor: true).pluck(:district).uniq
@@ -15,19 +12,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def new
+    @user = User.new
+  end
+
   def create
     @user = User.new(user_params)
     @user.is_doctor = @user.is_doctor.to_b
     if @user.save
-      redirect_to users_path
+      redirect_to login_path
     else
       render 'new'
     end
-  end
-
-  def dashboard
-    @appointments = Appointment.all
-    @doctors = User.where(is_doctor: true)
   end
 
   private

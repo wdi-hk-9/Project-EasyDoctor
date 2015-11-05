@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 20151103095220) do
     t.datetime "datetime"
     t.integer  "doctor_id"
     t.integer  "user_id"
-    t.string   "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "status",     default: "Pending"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   create_table "users", force: :cascade do |t|

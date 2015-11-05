@@ -4,7 +4,7 @@ class CreateAppointments < ActiveRecord::Migration
       t.datetime :datetime
       t.integer :doctor_id
       t.integer :user_id
-      t.string :status
+      t.string :status, default: "Pending"
       t.timestamps null: false
     end
   end
