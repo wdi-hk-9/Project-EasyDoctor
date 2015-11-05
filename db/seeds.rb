@@ -3,6 +3,8 @@
 #
 # Examples:
 #
+require 'rubygems'
+require 'faker'
 
 districts = ["Central", "Wan Chai", "Admiralty"]
 
