@@ -9,7 +9,11 @@ class SessionsController < ApplicationController
     # email_found && params[:password] == hashed_password ?
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to users_path
+      if current_user && current_user.is_doctor
+        redirect_to doctors_appointments_path
+      else
+        redirect_to users_path
+      end
     else
      flash.now.alert = "invalid login credentials"
      render "new"

@@ -1,0 +1,28 @@
+<h1>My Appointments</h1>
+  <div id="patient-appointments" class"container table-responsive">
+    <table id="find-doctors" class="table">
+      <thead>
+        <tr>
+          <th>DATE</th>
+          <th>TIME</th>
+          <th>NAME</th>
+          <th>STATUS</th>
+          <th>CONTROLS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @appointments.each do |appointment| %>
+          <tr>
+            <td><%= appointment.datetime %></td>
+            <td><%= appointment.datetime %></td>
+            <td><%= appointment.user.name %></td>
+            <td><%= appointment.status %></td>
+            <% if appointment.status == "Pending" %>
+            <td><%= button_to "Confirm", doctors_appointment_path(appointment.id) + "?appointment[status]=Confirmed", class: "btn btn-primary form-control", method: "put" %></td>
+            <td><%= button_to "Reject", doctors_appointment_path(appointment.id) + "?appointment[status]=Rejected", class: "btn btn-danger form-control", method: "put" %></td>
+            <% end %>
+          </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
