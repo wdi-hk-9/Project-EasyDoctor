@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   # Implement session using cookies
-  helper_method :current_user, :logged_in?
+  helper_method :current_user, :logged_in?, :is_doctor?
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
