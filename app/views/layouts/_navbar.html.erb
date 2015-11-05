@@ -12,16 +12,18 @@
    <div class="collapse navbar-collapse" id="navbar-dropdown">
      <ul class="nav navbar-nav"></ul>
      <ul class="nav navbar-nav navbar-right">
-       <% if logged_in? && is_doctor? %>
-         <li><a href="<%= doctors_appointments_path %>">My Appointments</a></li>
-       <% elsif logged_in? && !is_doctor? %>
-         <li><a href="<%= users_path %>">Find Doctors</a></li>
-         <li><a href="<%= users_appointments_path %>">My Appointments</a></li>
-       <% end %>
-       <% if logged_in? %>
+      <% if logged_in? && is_doctor? %>
+        <li><a href="<%= doctors_appointments_path %>">My Appointments</a></li>
+      <% elsif logged_in? && !is_doctor? %>
+        <li><a href="<%= users_path %>">Find Doctors</a></li>
+        <li><a href="<%= users_appointments_path %>">My Appointments</a></li>
+      <% end %>
+      <% if logged_in? %>
         <li><%= link_to 'Logout', logout_path, method: :delete %></li>
-       <% end %>
-
+      <% else %>
+        <li><%= link_to 'Login', login_path, method: :get %></li>
+        <li><%= link_to 'Signup', signup_path, method: :get %></li>
+      <% end %>
      </ul>
    </div>
  </div>
