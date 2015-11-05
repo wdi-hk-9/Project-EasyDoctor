@@ -1,15 +1,15 @@
 <div id="find-doctors-page">
   <h1>Find Doctors</h1>
-  <p>Select District</p>
 
   <%= form_for :user, method: "get" do |f| %>
     <%= f.select :district, @districts, {}, class: "form-control" do %>
-      <option value>Select District: </option>
+      <option value>Select District : </option>
       <% @districts.each do |district| %>
         <option value="<%= district %>"><%= district %></option>
       <% end %>
     <% end %>
-    <%= f.submit "Find By District", class: "btn btn-primary btn-lg" %>
+
+    <%= f.submit "Find By District", class: "find-district btn btn-primary btn-lg" %>
   <% end %>
 
   <table id="find-doctors" class="table">

@@ -7,22 +7,24 @@
           <th>TIME</th>
           <th>NAME</th>
           <th>STATUS</th>
-          <th>CONTROLS</th>
+          <th>CONFIRM/REJECT</th>
         </tr>
       </thead>
       <tbody>
         <% @appointments.each do |appointment| %>
           <tr>
-            <td><%= appointment.datetime %></td>
-            <td><%= appointment.datetime %></td>
+            <td><%= "#{appointment.datetime.year} #{"."} #{appointment.datetime.month} #{"."} #{appointment.datetime.day}" %></td>
+            <td><%= "#{appointment.datetime.hour} #{":"} #{appointment.datetime.min == 0 ? "00" : "30"}" %></td>
             <td><%= appointment.user.name %></td>
             <td><%= appointment.status %></td>
             <% if appointment.status == "Pending" %>
-              <td><%= button_to "Confirm", doctors_appointment_confirm_path(appointment.id) + "?appointment[status]=Confirmed", class: "btn btn-primary form-control", method: "put" %></td>
-              <td><%= button_to "Reject", doctors_appointment_reject_path(appointment.id) + "?appointment[status]=Rejected", class: "btn btn-danger form-control", method: "put" %></td>
+              <td>
+                <%= button_to "Confirm", doctors_appointment_path(appointment.id) + "?appointment[status]=Confirmed", class: "btn btn-primary", method: "put" %>
+                <%= button_to "Reject", doctors_appointment_path(appointment.id) + "?appointment[status]=Rejected", class: "btn btn-danger", method: "put" %>
+              </td>
             <% end %>
           </tr>
-        <%end%>
+        <% end %>
       </tbody>
     </table>
   </div>

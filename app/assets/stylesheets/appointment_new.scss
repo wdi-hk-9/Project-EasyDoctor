@@ -1,0 +1,37 @@
+#user-dashboard{
+  #doctor-info-container{
+    background-color: #E0E0E0;
+    height: 160px;
+    p{
+      font-weight: bold;
+      padding-top: 10px;
+    }
+  }
+
+  #datepicker{
+    .ui-datepicker{
+      font-size: 20px;
+      margin: 20px auto;
+      border: none;
+    }
+  }
+
+  #timeslot{
+    height: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  form{
+    input{
+      height: 40px;
+    }
+  }
+
+  .send-request{
+    background-color: #41B6A6;
+    color: white;
+    margin-top: 10px;
+  }
+
+}

@@ -19,11 +19,9 @@
          <li><a href="<%= users_appointments_path %>">My Appointments</a></li>
        <% end %>
        <% if logged_in? %>
-         <li><%= link_to 'Logout', logout_path, method: :delete %></li>
-       <% else %>
-         <li><%= link_to 'Login', login_path, method: :get %></li>
-         <li><%= link_to 'Signup', signup_path, method: :get %></li>
+        <li><%= link_to 'Logout', logout_path, method: :delete %></li>
        <% end %>
+
      </ul>
    </div>
  </div>
