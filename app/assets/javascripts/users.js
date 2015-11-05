@@ -15,27 +15,6 @@ $(document).ready(function(){
 
 // User Dashboard
 $(document).ready(function () {
-  $('#find-doc').show();
-  $('#make-appointment').hide();
-  $('#confirmed-appointments').hide();
-
-  $('#find-doc').on('click', function(){
-    $('#search-doc').show('slow');
-    $('#make-appointment').hide('slow');
-    $('#confirmed-appointments').hide('slow');
-  });
-
-  $('#show-appt').on('click', function(){
-    $('#make-appointment').hide('slow');
-    $('#search-doc').hide('slow');
-    $('#confirmed-appointments').show('slow');
-  });
-
-  $('#add-appt').on('click', function(){
-    $('#confirmed-appointments').hide('slow');
-    $('#search-doc').hide('slow');
-    $('#make-appointment').show('slow');
-  });
 
   //Make Appointment
 
@@ -59,6 +38,9 @@ $(document).ready(function () {
         appointment: {
           datetime: datetime
         }
+      },
+      success: function (response) {
+        window.location = "/users/appointments";
       }
     })
   });
