@@ -1,12 +1,14 @@
 <div id="user-dashboard">
-  <p>Doctor: <%= @appointment.doctor.name %></p>
-  <p>Mobile: <%= @appointment.doctor.mobile %></p>
-  <p>District: <%= @appointment.doctor.district %></p>
-  <p>Address: <%= @appointment.doctor.address %></p>
+  <div id="doctor-info-container">
+    <p>Doctor: <%= @appointment.doctor.name %></p>
+    <p>Mobile: <%= @appointment.doctor.mobile %></p>
+    <p>District: <%= @appointment.doctor.district %></p>
+    <p>Address: <%= @appointment.doctor.address %></p>
+  </div>
 
   <form id="send-request-form" action="dashboard_submit" method="post">
     <div id="datepicker"></div>
-    <select name="timeslot" id="timeslot" class="form-control">
+    <select name="timeslot" id="timeslot" class="form-control col-xs-10 col-sm-6 col-lg-8 col-sm-offset-3 col-md-4 col-md-offset-4 col-lg-offset-4">
       <option value="0">10:00-10:30</option>
       <option value="1">10:30-11:00</option>
       <option value="2">11:00-11:30</option>
@@ -18,7 +20,7 @@
       <option value="12">16:00-16:30</option>
       <option value="13">16:30-17:00</option>
     </select>
-    <input class="btn btn-default" type="submit" name="submit" value="Send Request">
+    <input class="send-request btn btn-default" type="submit" name="submit" value="Send Request">
   </form>
   </div>
 </div>
