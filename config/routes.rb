@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   end
 
   get 'doctors/appointments', to: "appointments#doctor_index"
-  put 'doctors/appointments/:id', to: "appointments#update", as: "doctors_appointment"
+  put 'doctors/appointments/:id/confirm', to: "appointments#confirm", as: "doctors_appointment_confirm"
+  put 'doctors/appointments/:id/reject', to: "appointments#reject", as: "doctors_appointment_reject"
 
   get 'login', to: 'sessions#new'
   delete 'logout', to: 'sessions#destroy'
