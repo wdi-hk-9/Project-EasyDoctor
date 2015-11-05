@@ -16,7 +16,7 @@
             <td><%= "#{datetime.year} #{"."} #{datetime.month} #{"."} #{datetime.day}" %></td>
             <td><%= "#{datetime.hour} #{":"} #{datetime.min == 0 ? "00" : "30"}" %></td>
             <td><%= appointment.doctor.name%></td>
-            <td>Pending</td>
+            <td><%= appointment.status %></td>
           </tr>
         <% end %>
       </tbody>
